@@ -1,0 +1,21 @@
+@Metadata.layer: #CORE
+
+annotate entity ZC_LEAVE_TYPE_pv with
+{
+  @UI.facet: [
+    {
+      id: 'LeaveTypeInfo',
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Leave Type Information'
+    }
+  ]
+
+  @UI.identification: [{ position: 10 }]
+  LeaveTypeID;
+
+  @UI.identification: [{ position: 20 }]
+  LeaveName;
+
+  @UI.identification: [{ position: 30 }]
+  MaxDays;
+}

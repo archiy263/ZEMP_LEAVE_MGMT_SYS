@@ -1,0 +1,56 @@
+managed implementation in class zbp_r_leave unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_LEAVE alias Leave
+persistent table zleave_reque
+draft table zleave_reque_d
+
+etag master LocinstLastchangeAt
+lock master total etag LastChangedAt
+
+authorization master ( global )
+{
+  field ( readonly : update ) LeaveID;
+
+  create;
+  update;
+  delete;
+
+  action Approve result [1] $self;
+  action Reject result [1] $self;
+
+  validation validateLeaveBalance
+    on save { create; update; }
+
+  validation validateOverlapLeave
+    on save { create; update; }
+
+  determination setDefaultStatus
+    on modify { create; }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+    validation validateLeaveBalance;
+    validation validateOverlapLeave;
+  }
+
+  mapping for zleave_reque
+  {
+    LeaveID       = leave_id;
+    EmployeeID    = employee_id;
+    LeaveTypeID   = leave_type_id;
+    FromDate      = from_date;
+    ToDate        = to_date;
+    Reason        = reason;
+    StatusID      = status_id;
+    AppliedOn     = applied_on;
+
+    LastChangedAt       = last_changed_at;
+    LocinstLastchangeAt = locinst_lastchange_at;
+  }
+}

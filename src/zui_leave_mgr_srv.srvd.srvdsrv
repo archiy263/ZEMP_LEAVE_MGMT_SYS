@@ -1,0 +1,4 @@
+@EndUserText.label: 'Manager Leave Service'
+define service ZUI_LEAVE_MGR_SRV {
+  expose ZC_LEAVE_MGR as Leave;
+}

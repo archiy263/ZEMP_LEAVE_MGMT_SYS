@@ -1,0 +1,40 @@
+managed implementation in class zbp_r_emp unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_EMP_CDS alias Employee
+persistent table zemp_master_t
+draft table zemp_master_d
+
+etag master LocinstLastchangeAt
+lock master total etag LastChangedAt
+
+authorization master ( global )
+
+{
+  field ( readonly : update ) EmployeeID;
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zemp_master_t
+  {
+    EmployeeID            = employee_id;
+    EmployeeName          = employee_name;
+    Department            = department;
+    Email                 = email;
+    Phone                 = phone;
+    JoiningDate           = joining_date;
+    LeaveBalance          = leave_balance;
+
+    LastChangedAt         = last_changed_at;
+    LocinstLastchangeAt   = locinst_lastchange_at;
+  }
+}

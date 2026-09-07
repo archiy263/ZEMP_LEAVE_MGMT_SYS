@@ -1,0 +1,37 @@
+@Metadata.layer: #CORE
+
+annotate entity ZC_LEAVE_EMP with
+{
+  @UI.facet: [
+    {
+      id       : 'LeaveInfo',
+      type     : #IDENTIFICATION_REFERENCE,
+      label    : 'Leave Request Information',
+      position : 10
+    }
+  ]
+
+  @UI.identification: [{ position: 10 }]
+  LeaveID;
+
+  @UI.identification: [{ position: 20 }]
+  EmployeeID;
+
+  @UI.identification: [{ position: 30 }]
+  LeaveTypeID;
+
+  @UI.identification: [{ position: 40 }]
+  FromDate;
+
+  @UI.identification: [{ position: 50 }]
+  ToDate;
+
+  @UI.identification: [{ position: 60 }]
+  Reason;
+
+  @UI.identification: [{ position: 70 }]
+  StatusID;
+
+  @UI.identification: [{ position: 80 }]
+  AppliedOn;
+}

@@ -1,0 +1,6 @@
+define service ZUI_LEAVE_SERVICE {
+  expose ZC_LEAVE           as Leave;
+  expose ZC_EMP_PV          as Employee;
+  expose ZC_LEAVE_TYPE_pv   as LeaveType;
+  expose ZC_LEAVE_STATUS_pv as LeaveStatus;
+}

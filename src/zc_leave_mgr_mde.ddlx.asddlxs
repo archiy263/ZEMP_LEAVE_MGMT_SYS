@@ -1,0 +1,21 @@
+@Metadata.layer: #CORE
+
+annotate entity ZC_LEAVE_MGR with
+{
+  @UI.lineItem: [
+    {
+      type: #FOR_ACTION,
+      dataAction: 'Approve',
+      label: 'Approve',
+      position: 90
+    },
+    {
+      type: #FOR_ACTION,
+      dataAction: 'Reject',
+      label: 'Reject',
+      position: 100
+    }
+  ]
+
+  LeaveID;
+}
