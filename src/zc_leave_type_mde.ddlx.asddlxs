@@ -14,8 +14,26 @@ annotate entity ZC_LEAVE_TYPE_pv with
   LeaveTypeID;
 
   @UI.identification: [{ position: 20 }]
+  @EndUserText.label: 'Leave Type'
+@UI.lineItem: [
+  {
+    position        : 20,
+    importance      : #HIGH,
+    label           : 'Leave Type',
+    cssDefault.width: '12rem'
+  }
+]
   LeaveName;
 
   @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'Max Days'
+@UI.lineItem: [
+  {
+    position        : 30,
+    importance      : #HIGH,
+    label           : 'Max Days',
+    cssDefault.width: '7rem'
+  }
+]
   MaxDays;
 }

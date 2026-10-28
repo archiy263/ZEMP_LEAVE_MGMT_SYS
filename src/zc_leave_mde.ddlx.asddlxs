@@ -26,7 +26,7 @@ annotate entity ZC_LEAVE with
     position: 100
   }
 ]
-  LeaveID;
+  LeaveNumber;
 
   @UI.identification: [{ position: 20 }]
   EmployeeID;

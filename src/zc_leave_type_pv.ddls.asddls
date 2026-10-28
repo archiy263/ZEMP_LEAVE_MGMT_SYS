@@ -1,5 +1,6 @@
 @Metadata.allowExtensions: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
+@ObjectModel.resultSet.sizeCategory: #XS
 @EndUserText.label: 'Leave Type Projection CDS'
 
 @UI.headerInfo: {

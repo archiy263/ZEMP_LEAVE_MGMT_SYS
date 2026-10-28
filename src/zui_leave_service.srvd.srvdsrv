@@ -1,6 +1,9 @@
 define service ZUI_LEAVE_SERVICE {
-  expose ZC_LEAVE           as Leave;
-  expose ZC_EMP_PV          as Employee;
-  expose ZC_LEAVE_TYPE_pv   as LeaveType;
-  expose ZC_LEAVE_STATUS_pv as LeaveStatus;
+  expose ZC_LEAVE             as Leave;
+  expose ZC_EMP_PV            as Employee;
+  expose ZC_LEAVE_TYPE_pv     as LeaveType;
+  expose ZC_LEAVE_STATUS_pv   as LeaveStatus;
+  expose ZC_EMP_LEAVE_BALANCE as EMP_Leave_Bal;
+  expose ZC_LEAVE_ANALYTICS   as Analytics;
+  expose ZC_LEAVE_KPI         as LeaveKPI;
 }

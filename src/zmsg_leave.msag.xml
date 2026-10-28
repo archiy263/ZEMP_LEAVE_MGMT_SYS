@@ -7,6 +7,68 @@
     <MASTERLANG>E</MASTERLANG>
     <STEXT>Leave Management Message Class</STEXT>
    </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_LEAVE</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Insufficient leave balance</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_LEAVE</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Leave dates overlap with existing leave request</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_LEAVE</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Leave balance updated successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_LEAVE</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Selected leave type is not configured.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_LEAVE</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Insufficient leave balance for the selected leave type.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_LEAVE</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Please enter both From Date and To Date.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_LEAVE</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>From Date cannot be later than To Date.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_LEAVE</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Leave dates cannot be in the past.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_LEAVE</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Only pending leave requests can be approved.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_LEAVE</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Only pending leave requests can be rejected.</TEXT>
+    </T100>
+   </T100>
   </asx:values>
  </asx:abap>
 </abapGit>

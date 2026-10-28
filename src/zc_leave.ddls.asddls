@@ -6,7 +6,7 @@
   typeName: 'Leave Request',
   typeNamePlural: 'Leave Requests',
   title: {
-    value: 'LeaveID'
+    value: 'LeaveNumber'
   }
 }
 
@@ -15,10 +15,16 @@ provider contract transactional_query
 as projection on ZR_LEAVE
 {
 
-  @EndUserText.label: 'Leave ID'
-  @UI.lineItem: [{ position: 10 }]
-  @UI.identification: [{ position: 10 }]
-  key LeaveID,
+key LeaveUUID,
+
+@EndUserText.label: 'Leave ID'
+@UI.lineItem: [
+  { position: 10, importance: #HIGH }
+]
+@UI.identification: [
+  { position: 10 }
+]
+LeaveNumber,
 
   @EndUserText.label: 'Employee'
   @UI.lineItem: [{ position: 20 }]
@@ -75,10 +81,11 @@ as projection on ZR_LEAVE
   ]
   StatusID,
 
-  @EndUserText.label: 'Applied On'
-  @UI.lineItem: [{ position: 70 }]
-  @UI.identification: [{ position: 70 }]
-  AppliedOn,
+@EndUserText.label: 'Applied On'
+@UI.lineItem: [{ position: 70 }]
+@UI.identification: [{ position: 70 }]
+CreatedAt,
+  
 
   @EndUserText.label: 'Reason'
   @UI.identification: [{ position: 80 }]

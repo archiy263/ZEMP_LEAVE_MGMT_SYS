@@ -6,7 +6,11 @@
 "ZEMP_MASTER_T"
 ],
 "ASSOCIATED":
-[],
+[
+"ZR_EMP_CDS",
+"ZR_LEAVE_ANALYTICS",
+"ZR_LEAVE_KPI"
+],
 "BASE":
 [],
 "ANNO_REF":

@@ -1,21 +1,98 @@
 @Metadata.layer: #CORE
-
 annotate entity ZC_LEAVE_MGR with
 {
+  @UI.facet: [
+    {
+      id       : 'LeaveInformation',
+      type     : #IDENTIFICATION_REFERENCE,
+      label    : 'Leave Request Information',
+      position : 10
+    }
+  ]
+
   @UI.lineItem: [
+    {
+      position        : 10,
+      importance      : #HIGH,
+      label           : 'Leave ID',
+      cssDefault.width: '7rem'
+    },
+    
     {
       type: #FOR_ACTION,
       dataAction: 'Approve',
       label: 'Approve',
-      position: 90
+      position: 200
     },
     {
       type: #FOR_ACTION,
       dataAction: 'Reject',
       label: 'Reject',
-      position: 100
+      position: 210
     }
   ]
+    @UI.identification: [
+    {
+    position   : 10,
+    importance : #HIGH,
+    label      : 'Leave ID'
+    },
+    
+    {
+      type      : #FOR_ACTION,
+      dataAction: 'Approve',
+      label     : 'Approve',
+      position  : 200
+    },
+    {
+      type      : #FOR_ACTION,
+      dataAction: 'Reject',
+      label     : 'Reject',
+      position  : 210
+    }
+  ]
+  LeaveNumber;
+  
+    @UI.identification: [{ position: 20 }]
+  EmployeeID;
 
-  LeaveID;
+  @UI.connectedFields: [
+    {
+      qualifier  : 'LeaveDates',
+      name       : 'FromDate',
+      template   : '{FromDate} - {ToDate}',
+      groupLabel : 'Leave Dates'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier      : 'LeaveDates',
+      type            : #AS_CONNECTED_FIELDS,
+      valueQualifier : 'LeaveDates',
+      position        : 30
+    }
+  ]
+  FromDate;
+
+  @UI.connectedFields: [
+    {
+      qualifier : 'LeaveDates',
+      name      : 'ToDate'
+    }
+  ]
+  ToDate;
+
+  @UI.identification: [{ position: 40 }]
+  LeaveTypeID;
+
+  @UI.identification: [{ position: 60 }]
+  StatusID;
+
+  @UI.identification: [{ position: 70 }]
+  Reason;
+  
+  @EndUserText.label: 'Requested On'
+@UI.identification: [{ position: 80 }]
+CreatedAt;
+  
 }

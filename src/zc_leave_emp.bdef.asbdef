@@ -8,6 +8,10 @@ define behavior for ZC_LEAVE_EMP alias Leave
   use update;
   use delete;
 
+  field ( readonly ) StatusID;
+  field ( readonly ) LeaveUUID;
+  field ( readonly ) LeaveNumber;
+
   use action Edit;
   use action Activate;
   use action Discard;

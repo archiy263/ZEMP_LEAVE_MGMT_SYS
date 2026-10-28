@@ -3,12 +3,65 @@
 annotate entity ZC_EMP_PV with
 {
   @UI.facet: [
+
     {
       id       : 'EmployeeInfo',
       type     : #IDENTIFICATION_REFERENCE,
       label    : 'Employee Information',
       position : 10
-    }
+    },
+
+    {
+      id             : 'TeamLeaveMicroChart',
+      type           : #CHART_REFERENCE,
+      label          : 'Approved Leave by Employee',
+      targetElement  : '_LeaveAnalytics',
+      targetQualifier: 'EmployeeLeaveStackedChart',
+      purpose        : #HEADER,
+      position       : 20
+    },
+    
+    {
+  id             : 'TeamLeaveBarChart',
+  type           : #CHART_REFERENCE,
+  label          : 'Leave Comparison',
+  targetElement  : '_LeaveAnalytics',
+  targetQualifier: 'EmployeeLeaveBarChart',
+  purpose        : #HEADER,
+  position       : 30
+},
+
+{
+  id             : 'LeaveBalanceRadial',
+  type           : #CHART_REFERENCE,
+  label          : 'Leave Balance',
+  targetElement  : '_LeaveKPI',
+  targetQualifier: 'LeaveBalanceRadialChart',
+  purpose        : #HEADER,
+  position       : 40
+},
+
+{
+  id             : 'LeaveBalanceBullet',
+  type           : #CHART_REFERENCE,
+  label          : 'Leave Balance vs Entitlement',
+  targetElement  : '_LeaveKPI',
+  targetQualifier: 'LeaveBalanceBulletChart',
+  purpose        : #HEADER,
+  position       : 50
+},
+
+{
+  id             : 'LeaveUtilizationHarvey',
+  type           : #CHART_REFERENCE,
+  label          : 'Leave Utilization',
+  targetElement  : '_LeaveKPI',
+  targetQualifier: 'LeaveUsedHarveyChart',
+  purpose        : #HEADER,
+  position       : 60
+}
+    
+
   ]
 
   @UI.identification: [{ position: 10 }]

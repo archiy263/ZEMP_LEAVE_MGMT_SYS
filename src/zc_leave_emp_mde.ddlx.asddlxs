@@ -12,25 +12,45 @@ annotate entity ZC_LEAVE_EMP with
   ]
 
   @UI.identification: [{ position: 10 }]
-  LeaveID;
+  LeaveNumber;
 
   @UI.identification: [{ position: 20 }]
   EmployeeID;
 
-  @UI.identification: [{ position: 30 }]
-  LeaveTypeID;
-
-  @UI.identification: [{ position: 40 }]
+  @UI.connectedFields: [
+    {
+      qualifier  : 'LeaveDates',
+      name       : 'FromDate',
+      template   : '{FromDate} - {ToDate}',
+      groupLabel : 'Leave Dates'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier      : 'LeaveDates',
+      type           : #AS_CONNECTED_FIELDS,
+      valueQualifier : 'LeaveDates',
+      position       : 30
+    }
+  ]
   FromDate;
 
-  @UI.identification: [{ position: 50 }]
+  @UI.connectedFields: [
+    {
+      qualifier : 'LeaveDates',
+      name      : 'ToDate'
+    }
+  ]
   ToDate;
+  
+  @UI.identification: [{ position: 40 }]
+  LeaveTypeID;
 
   @UI.identification: [{ position: 60 }]
-  Reason;
+  StatusID;
 
   @UI.identification: [{ position: 70 }]
-  StatusID;
+  Reason;
 
   @UI.identification: [{ position: 80 }]
   AppliedOn;

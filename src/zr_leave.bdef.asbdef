@@ -3,24 +3,31 @@ strict ( 2 );
 with draft;
 
 define behavior for ZR_LEAVE alias Leave
-persistent table zleave_reque
-draft table zleave_reque_d
+persistent table zleave_reque_v2
+draft table zleave_reque_v2d
 
 etag master LocinstLastchangeAt
 lock master total etag LastChangedAt
 
 authorization master ( global )
-{
-  field ( readonly : update ) LeaveID;
 
+{
   create;
   update;
   delete;
 
-  action Approve result [1] $self;
-  action Reject result [1] $self;
+  field ( numbering : managed, readonly ) LeaveUUID;
+  field ( readonly ) LeaveNumber;
+  field ( readonly ) StatusCriticality;
+  field ( readonly ) CreatedAt;
+
+  action ( features : instance ) Approve result [1] $self;
+  action ( features : instance ) Reject result [1] $self;
 
   validation validateLeaveBalance
+    on save { create; update; }
+
+  validation validateLeaveDates
     on save { create; update; }
 
   validation validateOverlapLeave
@@ -28,6 +35,9 @@ authorization master ( global )
 
   determination setDefaultStatus
     on modify { create; }
+
+  determination setLeaveNumber
+    on save { create; }
 
   draft action Edit;
   draft action Activate optimized;
@@ -37,20 +47,23 @@ authorization master ( global )
   {
     validation validateLeaveBalance;
     validation validateOverlapLeave;
+    validation validateLeaveDates;
+    determination setLeaveNumber;
   }
 
-  mapping for zleave_reque
+  mapping for zleave_reque_v2
   {
-    LeaveID       = leave_id;
-    EmployeeID    = employee_id;
-    LeaveTypeID   = leave_type_id;
-    FromDate      = from_date;
-    ToDate        = to_date;
-    Reason        = reason;
-    StatusID      = status_id;
-    AppliedOn     = applied_on;
-
-    LastChangedAt       = last_changed_at;
-    LocinstLastchangeAt = locinst_lastchange_at;
+  LeaveUUID          = leave_uuid;
+  LeaveNumber        = leave_number;
+  EmployeeID         = employee_id;
+  LeaveTypeID        = leave_type_id;
+  FromDate           = from_date;
+  ToDate             = to_date;
+  Reason             = reason;
+  StatusID           = status_id;
+  AppliedOn          = applied_on;
+  CreatedAt          = created_at;
+  LastChangedAt      = last_changed_at;
+  LocinstLastchangeAt = locinst_lastchange_at;
   }
 }

@@ -1,0 +1,79 @@
+@Metadata.layer: #CORE
+
+@UI.chart: [
+
+  {
+    qualifier: 'LeaveBalanceRadialChart',
+    title: 'Leave Balance',
+    description: 'Remaining leave compared with entitlement',
+    chartType: #DONUT,
+    measures: [ 'LeaveBalance' ],
+    measureAttributes: [
+      {
+        measure: 'LeaveBalance',
+        role: #AXIS_1,
+        asDataPoint: true
+      }
+    ]
+  },
+
+  {
+    qualifier: 'LeaveBalanceBulletChart',
+    title: 'Leave Balance vs Entitlement',
+    description: 'Remaining leave compared with entitlement',
+    chartType: #BULLET,
+    measures: [ 'LeaveBalance' ],
+    measureAttributes: [
+      {
+        measure: 'LeaveBalance',
+        role: #AXIS_1,
+        asDataPoint: true
+      }
+    ]
+  },
+
+  {
+    qualifier: 'LeaveUsedHarveyChart',
+    title: 'Leave Utilization',
+    description: 'Used leave compared with entitlement',
+    chartType: #PIE,
+    measures: [ 'LeaveUsed' ],
+    measureAttributes: [
+      {
+        measure: 'LeaveUsed',
+        role: #AXIS_1,
+        asDataPoint: true
+      }
+    ]
+  }
+
+]
+
+annotate entity ZC_LEAVE_KPI with
+{
+
+  @EndUserText.label: 'Leave Balance'
+
+  @UI.dataPoint: {
+    qualifier: 'LeaveBalance',
+    title: 'Leave Balance',
+    targetValueElement: 'LeaveTarget',
+    minimumValue: 0
+  }
+  LeaveBalance;
+
+
+  @EndUserText.label: 'Leave Target'
+  LeaveTarget;
+
+
+  @EndUserText.label: 'Leave Used'
+
+  @UI.dataPoint: {
+    qualifier: 'LeaveUsed',
+    title: 'Leave Utilization',
+    maximumValue: 12
+  }
+  LeaveUsed;
+
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Manager Analysis Service'
+define service ZUI_ANALYTICS_SRV {
+  expose ZC_LEAVE_ANALYTICS   as Analytics;
+  expose ZC_EMP_LEAVE_BALANCE as LeaveBalance;
+}
